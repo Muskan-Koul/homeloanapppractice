@@ -75,6 +75,8 @@ export const UserSignin = () => {
                 required
                  />
             </div>
+
+            {/* dropdown is here */}
            <div>
               <select onChange={updateRole} className="form-control form-control-lg mb-2" required >      
                 <option value="admin" placeholder= "Select Role">Admin</option>
