@@ -1,48 +1,32 @@
-// import { Nav, Navbar } from "react-bootstrap";
-// import { useDispatch } from "react-redux";
-// import { Link, useHistory } from "react-router-dom";
-// import { signOutAction } from "../redux/UserReducer";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { signOutAction } from "../redux/store";
 
-//export const AppNav = () => {
- // const dispatch = useDispatch();
- // const history = useHistory();
+export const AppNav = () => {
+  const dispatch = useDispatch();
+  let history = useHistory();
 
-//   const signOut = () => {
-//     // Logical Operation.
-//     // cookies / sessino are getting removed from the browser
-//     dispatch(signOutAction());
+  const signOut = () => {
+    dispatch(signOutAction());
 
-//     // redirect the user to login page.
-//     history.push("/");
-//   };
+    // redirect the user to login page.
+    history.push("/");
+  };
 
-//   return (
-//     <Navbar bg="dark" variant="dark" expand="lg">
-//       <Navbar.Brand href="#home">SOCIAL APP</Navbar.Brand>
+  return (
+  
+    <div className="bg-dark text-light p-3 d-flex justify-content-end align-items-center">
+      <Link to="/employee-list">
+        <h6 className="mr-3">EMP-LIST</h6>
+      </Link>
 
-//       <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Link to="/employee-upsert">
+        <h6>EMP-UPSERT</h6>
+      </Link>
 
-//       <Navbar.Collapse id="basic-navbar-nav">
-//         <Nav className="ml-auto">
-//           <Nav.Link as={Link} to="/todo-list">
-//             Todo List
-//           </Nav.Link>
-//           <Nav.Link as={Link} to="/todo-upsert">
-//             Todo Upsert
-//           </Nav.Link>
-//           <Nav.Link as={Link} to="/social-book">
-//             Socila Book
-//           </Nav.Link>
-
-//           <Nav.Link as={Link} to="/social-profile">
-//             Social Profile
-//           </Nav.Link>
-//           <Nav.Link onClick={signOut}>Sign Out</Nav.Link>
-//         </Nav>
-//       </Navbar.Collapse>
-//     </Navbar>
-//   );
-// };
-
-
-
+      <h6 className="ml-1" onClick={signOut} role="button">
+        Sign out
+      </h6>
+    </div>
+  );
+};
